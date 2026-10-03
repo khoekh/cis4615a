@@ -1,11 +1,15 @@
 /* Rule 07: OBJ09-J. Compare classes and not class names
-Description: Vulnerable to mix/match attack because class
-loaders can load differing classes
-Ver: NC
+Description: the comparison is correctly performed on the two class objects.
+Ver: C
 */
 
- // Determine whether object auth has required/expected class object
- if (auth.getClass().getName().equals(
-      "com.application.auth.DefaultAuthenticationHandler")) {
+ // Determine whether object auth has required/expected class name
+ if (auth.getClass() == com.application.auth.DefaultAuthenticationHandler.class) {
    // ...
 }
+
+// Determine whether objects x and y have the same class
+if (x.getClass() == y.getClass()) {
+  // Objects have the same class
+}
+
