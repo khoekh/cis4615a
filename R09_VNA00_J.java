@@ -1,11 +1,11 @@
 /* Rule 09: VNA00-J. Ensure visibility when accessing shared primitive variables
 Desc. Declaring a variable volatile or correctly synchronizing the code guarantees
 that 64-bit primitive long and double variables are accessed atomically
-Version: Noncompliant
+Version: Compliant (volatile)
 */
 
 final class ControlledStop implements Runnable {
-  private boolean done = false;
+  private volatile boolean done = false;
  
   @Override public void run() {
     while (!done) {
